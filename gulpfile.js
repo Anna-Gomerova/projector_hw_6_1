@@ -12,8 +12,8 @@ gulp.task("css", function() {
 
   return gulp.src("./src/**/*.scss")
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss(plugin))
-    .pipe(gulp.dest("./dest"))
+    // .pipe(postcss(plugin))
+    .pipe(gulp.dest("./"))
 })
 
 gulp.task("watch", function() {
