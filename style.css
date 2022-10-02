@@ -59,12 +59,12 @@ body {
   line-height: 150%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  opacity: 0.9;
 }
 
 .h3-title_blue,
 .text_blue {
   color: #0536FC;
+  opacity: 0.9;
 }
 
 .title__tagline {
@@ -135,15 +135,70 @@ body {
 }
 .section__content {
   grid-area: f;
-  position: relative;
+}
+
+.faq-list {
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .faq {
-  width: 456px;
+  max-width: 456px;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 30px;
+  padding-bottom: 70px;
 }
-.faq:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+.faq__heading {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-right: 35px;
+}
+.faq__heading:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-image: url(./img/faq_plus_icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.faq__text {
+  display: none;
+  padding-top: 70px;
+  max-width: 455px;
+  padding-right: 35px;
+}
+.faq__input {
+  appearance: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.faq__input:checked ~ .faq__text {
+  display: block;
+}
+.faq__input:checked ~ .faq__heading:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 1.4px;
+  background-image: url(./img/faq_minus_icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  right: 0;
+}
+
+.heading-wrapper {
+  display: inline-block;
+  max-width: 365px;
 }
 
 @media screen and (max-width: 1315px) {
@@ -158,5 +213,27 @@ body {
   }
   .title__tagline {
     padding-bottom: 50px;
+  }
+}
+@media screen and (max-width: 735px) {
+  .section {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "i" "f";
+    grid-template-rows: auto auto;
+    grid-template-columns: 100%;
+  }
+  .section__title {
+    grid-area: i;
+  }
+  .section__content {
+    grid-area: f;
+    justify-self: end;
+  }
+  .title__tagline {
+    padding-bottom: 50px;
+  }
+  .title__text {
+    padding-bottom: 20px;
   }
 }
